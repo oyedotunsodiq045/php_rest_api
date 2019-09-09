@@ -51,7 +51,14 @@
         http_response_code(200);
     
         // show products data in json format
-        echo json_encode($products_arr);
+        echo json_encode(
+            array(
+                "status" => true,
+                "status" => "Products found",
+                // "status" => $products_arr['records']
+                "status" => $products_arr
+            )
+        );
     } else {
     
         // set response code - 404 Not found
@@ -59,6 +66,9 @@
     
         // tell the user no products found
         echo json_encode(
-            array("message" => "No product found.")
+            array(
+                "status" => false,
+                "message" => "No product found."
+            )
         );
     }  

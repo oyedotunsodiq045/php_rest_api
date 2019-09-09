@@ -44,7 +44,10 @@
     
         // tell the user
         echo json_encode(
-            array("message" => "Category Not Updated.")
+            array(
+                "status" => false,
+                "message" => "Category Not Updated."
+            )
         );
     }
 ?>

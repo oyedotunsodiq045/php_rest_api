@@ -36,7 +36,10 @@
     
             // tell the user
             echo json_encode(
-                array("message" => "Category created.")
+                array(
+                    "status" => true,
+                    "message" => "Category created."
+                )
             );
         } else { // if unable to create the category, tell the user
     
@@ -45,7 +48,10 @@
     
             // tell the user
             echo json_encode(
-                array("message" => "Category Not Created.")
+                array(
+                    "status" => false,
+                    "message" => "Category Not Created."
+                )
             );
         }
     } else { // tell the user data is incomplete
@@ -55,7 +61,10 @@
     
         // tell the user
         echo json_encode(
-            array("message" => "Category Not Created. Incomplete Data.")
+            array(
+                "status" => false,
+                "message" => "Category Not Created. Incomplete Data."
+            )
         );
     }
 ?>

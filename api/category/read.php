@@ -48,7 +48,14 @@
         http_response_code(200);
     
         // show categories data in json format
-        echo json_encode($categories_arr);
+        echo json_encode(
+            array(
+                "status" => true,
+                "message" => "Categories Found",
+                // "data" => $categories_arr['records']
+                "data" => $categories_arr
+            )
+        );
     } else {
     
         // set response code - 404 Not found
@@ -56,6 +63,9 @@
     
         // tell the user no categories found
         echo json_encode(
-            array("message" => "No category found.")
+            array(
+                "status" => false,
+                "message" => "No category found."
+            )
         );
     }  

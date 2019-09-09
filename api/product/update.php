@@ -37,7 +37,10 @@
     
         // tell the user
         echo json_encode(
-            array("message" => "Product Updated.")
+            array(
+                "status" => true,
+                "message" => "Product Updated."
+            )
         );
     } else { // if unable to update the product, tell the user
     
@@ -46,7 +49,10 @@
     
         // tell the user
         echo json_encode(
-            array("message" => "Product Not Updated.")
+            array(
+                "status" => false,
+                "message" => "Product Not Updated."
+            )
         );
     }
 ?>

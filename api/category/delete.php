@@ -30,13 +30,23 @@
         http_response_code(200);
     
         // tell the user
-        echo json_encode(array("message" => "Category Deleted."));
+        echo json_encode(
+            array(
+                "status" => true,
+                "message" => "Category Deleted."
+            )
+        );
     } else { // if unable to delete the category
     
         // set response code - 503 service unavailable
         http_response_code(503);
     
         // tell the user
-        echo json_encode(array("message" => "Category Not Deleted."));
+        echo json_encode(
+            array(
+                "status" => false,
+                "message" => "Category Not Deleted."
+            )
+        );
     }
 ?>

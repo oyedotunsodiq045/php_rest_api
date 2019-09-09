@@ -30,13 +30,23 @@
         http_response_code(200);
     
         // tell the user
-        echo json_encode(array("message" => "Product Deleted."));
+        echo json_encode(
+            array(
+                "status" => true,
+                "message" => "Product Deleted."
+            )
+        );
     } else { // if unable to delete the product
     
         // set response code - 503 service unavailable
         http_response_code(503);
     
         // tell the user
-        echo json_encode(array("message" => "Product Not Deleted."));
+        echo json_encode(
+            array(
+                "status" => false,
+                "message" => "Product Not Deleted."
+            )
+        );
     }
 ?>

@@ -8,7 +8,7 @@
     include_once '../../config/Database.php';
     include_once '../../objects/Category.php';
     
-    // instantiate database and product object
+    // instantiate database and category object
     $database = new Database();
     $db = $database->getConnection();
     
@@ -18,17 +18,17 @@
     // get keywords
     $keywords = isset($_GET["s"]) ? $_GET["s"] : "";
     
-    // query products
-    $stmt = $product->search($keywords);
+    // query categories
+    $stmt = $category->search($keywords);
     // Get row count
     $num = $stmt->rowCount();
     
     // check if more than 0 record found
     if ($num > 0) {
     
-        // products array
-        $products_arr=array();
-        $products_arr["records"]=array();
+        // categories array
+        $categories_arr=array();
+        $categories_arr["records"]=array();
     
         // retrieve our table contents
         // fetch() is faster than fetchAll()
@@ -39,7 +39,7 @@
             // just $name only
             extract($row);
     
-            $product_item=array(
+            $category_item=array(
                 "id" => $id,
                 "name" => $name,
                 "description" => html_entity_decode($description),
@@ -48,21 +48,31 @@
                 "category_name" => $category_name
             );
     
-            array_push($products_arr["records"], $product_item);
+            array_push($categories_arr["records"], $category_item);
         }
     
         // set response code - 200 OK
         http_response_code(200);
     
-        // show products data
-        echo json_encode($products_arr);
+        // show categories data
+        echo json_encode(
+            array(
+                "status" => true,
+                "message" => "Category Found",
+                // "data" => $categories_arr['records']
+                "data" => $categories_arr
+            )
+        );
     } else {
         // set response code - 404 Not found
         http_response_code(404);
     
-        // tell the user no products found
+        // tell the user no categories found
         echo json_encode(
-            array("message" => "No product found.")
+            array(
+                "status" => false,
+                "message" => "No category found."
+            )
         );
     }
 ?>

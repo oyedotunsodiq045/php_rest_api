@@ -40,7 +40,10 @@
     
             // tell the user
             echo json_encode(
-                array("message" => "Product created.")
+                array(
+                    "status" => true,
+                    "message" => "Product created."
+                )
             );
         } else { // if unable to create the product, tell the user
     
@@ -49,7 +52,10 @@
     
             // tell the user
             echo json_encode(
-                array("message" => "Product Not Created.")
+                array(
+                    "status" => false,
+                    "message" => "Product Not Created."
+                )
             );
         }
     } else { // tell the user data is incomplete
@@ -59,7 +65,10 @@
     
         // tell the user
         echo json_encode(
-            array("message" => "Product Not Created. Incomplete Data.")
+            array(
+                "status" => false,
+                "message" => "Product Not Created. Incomplete Data."
+            )
         );
     }
 ?>
