@@ -35,7 +35,10 @@
     
         // tell the user
         echo json_encode(
-            array("message" => "Category Updated.")
+            array(
+                "status" => true,
+                "message" => "Category Updated."
+            )
         );
     } else { // if unable to update the category, tell the user
     

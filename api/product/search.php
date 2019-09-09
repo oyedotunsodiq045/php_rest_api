@@ -58,8 +58,8 @@
         echo json_encode(
             array(
                 "status" => true,
-                "message" => "",
-                "data" => $products_arr
+                "message" => "Product found",
+                "data" => $products_arr["records"]
             )
         );
     } else {

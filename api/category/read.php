@@ -52,8 +52,8 @@
             array(
                 "status" => true,
                 "message" => "Categories Found",
-                // "data" => $categories_arr['records']
-                "data" => $categories_arr
+                "data" => $categories_arr['records']
+                // "data" => $categories_arr
             )
         );
     } else {

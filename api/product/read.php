@@ -54,9 +54,9 @@
         echo json_encode(
             array(
                 "status" => true,
-                "status" => "Products found",
-                // "status" => $products_arr['records']
-                "status" => $products_arr
+                "message" => "Products found",
+                "data" => $products_arr['records']
+                // "status" => $products_arr
             )
         );
     } else {
